@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reginaseladesign-57062aa2.zappy5.app/sitemap.xml
+Sitemap: https://regina-sela-design.zappy5.app/sitemap.xml
