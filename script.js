@@ -45,7 +45,7 @@ if (window.zappyContactFormLoaded) {
     const phoneHeaderBtn = document.querySelector('.phone-header-btn');
     if (phoneHeaderBtn) {
       phoneHeaderBtn.addEventListener('click', function() {
-        const phoneNumber = '[business_phone]';
+        const phoneNumber = '+972522972222';
         window.location.href = 'tel:' + phoneNumber;
       });
     }
