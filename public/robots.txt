@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reginaseladesign-57062aa2.zappy5.app/sitemap.xml
