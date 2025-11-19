@@ -1,50 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://regina-sela-design.zappy5.app</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/about</loc>
+    <lastmod>2025-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://example.com/contact</loc>
+    <lastmod>2025-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://example.com/gallery</loc>
+    <lastmod>2025-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://example.com</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://regina-sela-design.zappy5.app/gallery</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/process</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://regina-sela-design.zappy5.app/process</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/testimonials-page</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://regina-sela-design.zappy5.app/about</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://regina-sela-design.zappy5.app/contact</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://regina-sela-design.zappy5.app/privacy</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/privacy</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://regina-sela-design.zappy5.app/terms</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/terms</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://regina-sela-design.zappy5.app/accessibility</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://example.com/accessibility</loc>
+    <lastmod>2025-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
