@@ -1,56 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/about</loc>
-    <lastmod>2025-12-01</lastmod>
+    <loc>https://regina-sela-design.zappy5.app</loc>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/contact</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/gallery</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/process</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/testimonials-page</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/privacy</loc>
-    <lastmod>2025-12-01</lastmod>
+    <loc>https://regina-sela-design.zappy5.app/privacy</loc>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/terms</loc>
-    <lastmod>2025-12-01</lastmod>
+    <loc>https://regina-sela-design.zappy5.app/terms</loc>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/accessibility</loc>
-    <lastmod>2025-12-01</lastmod>
+    <loc>https://regina-sela-design.zappy5.app/accessibility</loc>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
