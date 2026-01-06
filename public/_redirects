@@ -1,11 +1,34 @@
 # Clean URL redirects for Render static hosting
 # These rewrite rules show clean URLs to users while serving .html files
 
-/about  /about.html  200
-/contact  /contact.html  200
-/gallery  /gallery.html  200
-/process  /process.html  200
-/testimonials-page  /testimonials-page.html  200
+
+# Language slug rewrites for SEO
+/en  /en/index.html  200
+/en/team  /en/team.html  200
+/en/about  /en/about.html  200
+/en/contact  /en/contact.html  200
+/en/gallery  /en/gallery.html  200
+/en/process  /en/process.html  200
+/en/team/amit-levi  /en/team-amit-levi.html  200
+/en/team/regina-sela  /en/team-regina-sela.html  200
+/en/team/ronit-cohen  /en/team-ronit-cohen.html  200
+/en  /en/index.html  200
+/ru  /ru/index.html  200
+/ru/team  /ru/team.html  200
+/ru/about  /ru/about.html  200
+/ru/contact  /ru/contact.html  200
+/ru/gallery  /ru/gallery.html  200
+/ru/process  /ru/process.html  200
+/ru/team/amit-levi  /ru/team-amit-levi.html  200
+/ru/team/regina-sela  /ru/team-regina-sela.html  200
+/ru/team/ronit-cohen  /ru/team-ronit-cohen.html  200
+/ru  /ru/index.html  200
+
+# Legal pages - redirect old .html URLs to friendly URLs
+/privacy.html  /privacy  301
+/accessibility.html  /accessibility  301
+/terms.html  /terms  301
+
 /  /index.html  200
 
 # 404 fallback

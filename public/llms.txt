@@ -1,0 +1,34 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### Homepage
+https://regina-sela-design.zappy5.app
+
+## Legal & Policy
+
+### Privacy Policy
+https://regina-sela-design.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://regina-sela-design.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://regina-sela-design.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://regina-sela-design.zappy5.app/sitemap.xml
+- **Robots.txt**: https://regina-sela-design.zappy5.app/robots.txt

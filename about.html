@@ -60,72 +60,67 @@
         right: 0;
       }
     </style>
-    <style id="zappy-mobile-submenu-styles">
-      /* Mobile submenu accordion styles */
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
       @media (max-width: 768px) {
-        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu {
-          position: static !important;
-          transform: none !important;
-          box-shadow: none !important;
-          background: transparent !important;
-          margin-top: 0 !important;
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          visibility: hidden;
-          transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
-          padding: 0 !important;
-          border-radius: 0 !important;
-        }
-        .sub-menu.mobile-expanded {
-          max-height: 500px !important;
-          opacity: 1 !important;
-          visibility: visible !important;
-          padding: 8px 0 8px 16px !important;
-        }
-        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded, html[lang="ar"] .sub-menu.mobile-expanded {
-          padding: 8px 16px 8px 0 !important;
-        }
-        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu {
-          opacity: 0; visibility: hidden; pointer-events: none;
-        }
-        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded {
-          opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
-        }
-        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) {
-          display: flex !important; flex-wrap: wrap !important; align-items: center !important;
-        }
-        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a {
-          flex: 1 !important;
-        }
-        .mobile-submenu-toggle {
-          display: flex !important; align-items: center !important; justify-content: center !important;
-          width: 44px !important; height: 44px !important; background: transparent !important;
-          border: none !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important;
-          flex-shrink: 0 !important; -webkit-tap-highlight-color: transparent;
-        }
-        .mobile-submenu-toggle::after {
-          content: '' !important; display: block !important; width: 0 !important; height: 0 !important;
-          border-left: 6px solid transparent !important; border-right: 6px solid transparent !important;
-          border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important;
-        }
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
         .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
-        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu {
-          flex-basis: 100% !important; width: 100% !important;
-        }
-        .sub-menu a { padding: 10px 0 !important; display: block !important; font-size: 14px !important; }
-        .sub-menu a:hover { background-color: transparent !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
       }
       @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
     </style>
-</head><body><div class="zappy-header" id="zappy-attribution-header" style="display:none"><p data-i18n="about_p_17">Happily created by&nbsp;<a href="https://zappy5.com" rel="noopener noreferrer" target="_blank" class="zappy-link" data-i18n="about_link_33">Zappy</a></p></div><nav class="navbar" id="navbar"><div class="container nav-container"><div class="nav-brand"><a href="/" class="logo-link"><img alt="ReginaSelaDesign" class="logo" src="/assets/reginaseladesign-logo.webp" data-i18n-alt="about_alt_44"></a></div><button aria-label="פתח תפריט" class="mobile-toggle" id="mobileToggle"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="hamburger-icon"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="close-icon" style="display:none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></button><button aria-label="התקשר אלינו" class="phone-header-btn"><svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button><ul class="nav-menu" id="navMenu"><li><a href="/gallery" data-i18n="about_nav_39">גלריה</a></li><li><a href="/process" data-i18n="about_nav_40">תהליך היצירה</a></li><li><a href="/about" data-i18n="about_nav_42">אודות</a></li><li><a href="/team" class="nav-link">הצוות שלנו</a><ul class="sub-menu"><li><a href="/team/regina-sela" class="nav-link">רגינה סלע</a></li><li><a href="/team/amit-levi" class="nav-link">עמית לוי</a></li><li><a href="/team/ronit-cohen" class="nav-link">רונית כהן</a></li></ul></li></ul>
+</head><body><div class="zappy-header" id="zappy-attribution-header" style="display:none"><p data-i18n="about_p_17">Happily created by&nbsp;<a href="https://zappy5.com" rel="noopener noreferrer" target="_blank" class="zappy-link" data-i18n="about_link_33">Zappy</a></p></div><nav class="navbar" id="navbar"><div class="container nav-container"><div class="nav-brand"><a href="/" class="logo-link"><img alt="ReginaSelaDesign" class="logo" src="/assets/reginaseladesign-logo.webp" data-i18n-alt="about_alt_44"></a></div><button aria-label="פתח תפריט" class="mobile-toggle" id="mobileToggle"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="hamburger-icon"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="close-icon" style="display:none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></button><button aria-label="התקשר אלינו" class="phone-header-btn"><svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button><ul class="nav-menu" id="navMenu"><li><a href="/gallery" data-i18n="about_nav_39">גלריה</a></li><li><a href="/process" data-i18n="about_nav_40">תהליך היצירה</a></li><li><a href="/about" data-i18n="about_nav_42">אודות</a></li><li><a href="/team" class="nav-link">הצוות שלנו</a><ul class="sub-menu"><li><a href="/team/regina-sela" class="nav-link">רגינה סלע</a></li><li><a href="/team/amit-levi" class="nav-link">עמית לוי</a></li><li><a href="/team/ronit-cohen" class="nav-link">רונית כהן</a></li></ul></li></ul>
 <div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
   <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:inherit;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
   </button>
   <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;"><button class="lang-option" data-lang="en">🇺🇸 English</button>
         <button class="lang-option" data-lang="ru">🇷🇺 Русский</button></div>
-</div><div class="nav-cta-container"><li class="nav-cta-item"><a href="/contact" class="nav-cta-btn" data-i18n="about_nav_43">צור קשר</a></li></div></div></nav><section class="page-header"><div class="container"><h1 data-i18n="about_h1_1">אודות Regina Sela Design</h1><h3 data-i18n="about_h3_8">פגשו את הצוות שמשלב טכנולוגיה מתקדמת עם אומנות האופנה</h3></div></section><section class="about-story"><div class="container"><div class="story-content"><h2 data-i18n="about_h2_2">הסיפור שלנו</h2><p data-i18n="about_p_18">Regina Sela Design נוסדה מתוך אהבה עמוקה לריקוד, אופנה וטכנולוגיה. ראינו את הפוטנציאל העצום של בינה מלאכותית בתחום עיצוב האופנה והחלטנו ליצור משהו חדש - סטודיו שמשלב את הטכנולוגיה המתקדמת ביותר עם מומחיות אנושית ואומנות מסורתית.</p><p data-i18n="about_p_19">מאז ההקמה, יצרנו מאות תלבושות במה לרקדנים, להקות ומשתתפים בתחרויות ריקוד מכל רחבי העולם. כל פרויקט הוא אתגר חדש, הזדמנות ללמוד ולצמוח, ומסע יצירתי שמסתיים בתלבושת שמעצימה את הביצוע ומשאירה רושם בל יימחה.</p></div></div></section><section class="mission-vision"><div class="container"><div class="mission-grid"><div class="mission-card"><i class="fas fa-bullseye"></i><h2 data-i18n="about_h2_3">המשימה שלנו</h2><p data-i18n="about_p_20">להפוך כל רקדן ולהקה לכוכבים על הבמה באמצעות תלבושות ייחודיות שמשלבות חדשנות טכנולוגית, איכות גבוהה ועיצוב מרהיב. אנחנו מחויבים ליצור תלבושות שלא רק נראות מדהים, אלא גם מעצימות את הביצוע ומאפשרות חופש תנועה מלא.</p></div><div class="mission-card"><i class="fas fa-eye"></i><h2 data-i18n="about_h2_4">החזון שלנו</h2><p data-i18n="about_p_21">להוביל את מהפכת הבינה המלאכותית בעולם עיצוב תלבושות הבמה, ולהפוך את הטכנולוגיה המתקדמת לנגישה וזמינה לכל רקדן ולהקה. אנחנו רוצים שכל מי שעולה על הבמה ירגיש בטוח, יפה ומוכן להציג את המיטב שלו.</p></div></div></div></section><section class="values"><div class="container"><h2 data-i18n="about_h2_5">הערכים שלנו</h2><div class="values-grid"><div class="value-item"><i class="fas fa-lightbulb"></i><h3 data-i18n="about_h3_9">חדשנות</h3><p data-i18n="about_p_22">אנחנו תמיד מחפשים דרכים חדשות לשלב טכנולוגיה בתהליך היצירתי ולהביא רעיונות ייחודיים שלא נראו קודם.</p></div><div class="value-item"><i class="fas fa-gem"></i><h3 data-i18n="about_h3_10">איכות</h3><p data-i18n="about_p_23">כל תלבושת עוברת ביקורת איכות קפדנית ונתפרת בקפידה מירבית כדי להבטיח שהיא תעמוד במבחן הזמן והשימוש.</p></div><div class="value-item"><i class="fas fa-handshake"></i><h3 data-i18n="about_h3_11">שיתוף פעולה</h3><p data-i18n="about_p_24">אנחנו מאמינים שהעבודה הטובה ביותר נוצרת בשיתוף פעולה צמוד עם הלקוחות שלנו, תוך הקשבה והבנה של החזון שלהם.</p></div><div class="value-item"><i class="fas fa-heart"></i><h3 data-i18n="about_h3_12">תשוקה</h3><p data-i18n="about_p_25">אנחנו אוהבים את מה שאנחנו עושים, וזה נראה בכל תלבושת שאנחנו יוצרים. התשוקה שלנו לריקוד ולאופנה מניעה אותנו קדימה.</p></div></div></div></section><section class="why-different"><div class="container"><h2 data-i18n="about_h2_6">מה מייחד אותנו</h2><div class="different-content"><div class="different-item"><h3 data-i18n="about_h3_13">טכנולוגיה מתקדמת</h3><p data-i18n="about_p_26">אנחנו משתמשים בכלי בינה מלאכותית מהמתקדמים ביותר בשוק, שמאפשרים לנו ליצור עיצובים שלא ניתן להשיג בשיטות מסורתיות. הטכנולוגיה עוזרת לנו לחקור אפשרויות בלתי מוגבלות ולמצוא את העיצוב המושלם לכל פרויקט.</p></div><div class="different-item"><h3 data-i18n="about_h3_14">מומחיות אנושית</h3><p data-i18n="about_p_27">למרות השימוש בטכנולוגיה, אנחנו מאמינים שהמגע האנושי הוא המרכיב החשוב ביותר. כל עיצוב עובר עיבוד ידני מקצועי, וכל תלבושת נתפרת בקפידה על ידי אומנים מנוסים.</p></div><div class="different-item"><h3 data-i18n="about_h3_15">התאמה אישית</h3><p data-i18n="about_p_28">אנחנו לא מאמינים בפתרונות גנריים. כל תלבושת מותאמת אישית לרקדן או ללהקה - החל מהעיצוב, דרך הבדים ועד להתאמה הסופית. התוצאה היא תלבושת שמרגישה כמו נוצרה במיוחד עבורכם - כי היא באמת נוצרה במיוחד עבורכם.</p></div><div class="different-item"><h3 data-i18n="about_h3_16">שירות מקצועי</h3><p data-i18n="about_p_29">אנחנו מלווים אתכם לאורך כל התהליך - מהייעוץ הראשוני ועד למסירה הסופית. אנחנו זמינים לשאלות, מקשיבים למשוב ועושים כל שביכולתנו כדי להבטיח שתהיו מרוצים לחלוטין מהתוצאה.</p></div></div></div></section><section class="cta-section"><div class="container"><div class="cta-content"><h2 data-i18n="about_h2_7">מוכנים להצטרף למשפחה שלנו?</h2><p data-i18n="about_p_30">בואו נדבר על הפרויקט הבא שלכם ונראה איך אנחנו יכולים לעזור לכם להאיר את הבמה</p><a href="/contact" class="btn-primary" data-i18n="about_link_34">צרו קשר</a></div></div></section><a href="https://wa.me/972522972222" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a><footer class="legal-footer"><div class="container"><div class="footer-main"><div class="all-rights-reserved"><p data-i18n="about_p_31">© 2025 ReginaSelaDesign. כל הזכויות שמורות.</p></div><div class="footer-social"><a href="https://facebook.com/beerisela" aria-label="Facebook" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://instagram.com/beerisela" aria-label="Instagram" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/972522972222" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a></div><div class="footer-legal"><a href="privacy.html" aria-label="מדיניות פרטיות" data-i18n="about_link_35">מדיניות פרטיות</a><span class="separator">|</span><a href="accessibility.html" aria-label="נגישות" data-i18n="about_link_36">נגישות</a><span class="separator">|</span><a href="terms.html" aria-label="תנאי שימוש" data-i18n="about_link_37">תנאי שימוש</a></div></div><div class="zappy-attribution"><p data-i18n="about_p_32">נוצר באמצעות<a href="https://zappy5.com" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:underline" data-i18n="about_link_38">Zappy</a></p></div></div></footer><script>!function(){var e=window.location.href;e.includes("/preview/")||e.includes("/preview-fullscreen/")||e.includes("localhost:5001")||e.includes("localhost:3000")||fetch("https://api.zappy5.com/api/website/57062aa2-dec4-454c-8801-70d32f209321/tier").then(function(e){return e.json()}).then(function(e){if(e.showAttribution){var t=document.getElementById("zappy-attribution-header");t&&(t.style.display="block")}}).catch(function(e){console.error("Failed to check tier:",e)})}()</script><div data-integration="accessibility:toolbar"></div><script src="/script.js"></script>
+</div><div class="nav-cta-container"><li class="nav-cta-item"><a href="/contact" class="nav-cta-btn" data-i18n="about_nav_43">צור קשר</a></li></div></div></nav><section class="page-header" style="; position: relative; overflow: hidden;">
+<div class="hero-video-background">
+  <div class="hero-video-overlay"></div>
+  <video class="hero-video" autoplay="" muted="" loop="" playsinline="">
+    <source src="/assets/hero-video-1765804482077.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <img class="hero-video-fallback" src="/assets/reginaseladesign-hero-hero-1-1765449237320-swt3cn.webp" alt="Hero background" loading="lazy">
+</div>
+<div class="container"><h1 data-i18n="about_h1_1">אודות Regina Sela Design</h1><h3 data-i18n="about_h3_8">פגשו את הצוות שמשלב טכנולוגיה מתקדמת עם אומנות האופנה</h3></div></section><section class="about-story"><div class="container"><div class="story-content"><h2 data-i18n="about_h2_2">הסיפור שלנו</h2><p data-i18n="about_p_18">Regina Sela Design נוסדה מתוך אהבה עמוקה לריקוד, אופנה וטכנולוגיה. ראינו את הפוטנציאל העצום של בינה מלאכותית בתחום עיצוב האופנה והחלטנו ליצור משהו חדש - סטודיו שמשלב את הטכנולוגיה המתקדמת ביותר עם מומחיות אנושית ואומנות מסורתית.</p><p data-i18n="about_p_19">מאז ההקמה, יצרנו מאות תלבושות במה לרקדנים, להקות ומשתתפים בתחרויות ריקוד מכל רחבי העולם. כל פרויקט הוא אתגר חדש, הזדמנות ללמוד ולצמוח, ומסע יצירתי שמסתיים בתלבושת שמעצימה את הביצוע ומשאירה רושם בל יימחה.</p></div></div></section><section class="mission-vision"><div class="container"><div class="mission-grid"><div class="mission-card"><i class="fas fa-bullseye"></i><h2 data-i18n="about_h2_3">המשימה שלנו</h2><p data-i18n="about_p_20">להפוך כל רקדן ולהקה לכוכבים על הבמה באמצעות תלבושות ייחודיות שמשלבות חדשנות טכנולוגית, איכות גבוהה ועיצוב מרהיב. אנחנו מחויבים ליצור תלבושות שלא רק נראות מדהים, אלא גם מעצימות את הביצוע ומאפשרות חופש תנועה מלא.</p></div><div class="mission-card"><i class="fas fa-eye"></i><h2 data-i18n="about_h2_4">החזון שלנו</h2><p data-i18n="about_p_21">להוביל את מהפכת הבינה המלאכותית בעולם עיצוב תלבושות הבמה, ולהפוך את הטכנולוגיה המתקדמת לנגישה וזמינה לכל רקדן ולהקה. אנחנו רוצים שכל מי שעולה על הבמה ירגיש בטוח, יפה ומוכן להציג את המיטב שלו.</p></div></div></div></section><section class="values"><div class="container"><h2 data-i18n="about_h2_5">הערכים שלנו</h2><div class="values-grid"><div class="value-item"><i class="fas fa-lightbulb"></i><h3 data-i18n="about_h3_9">חדשנות</h3><p data-i18n="about_p_22">אנחנו תמיד מחפשים דרכים חדשות לשלב טכנולוגיה בתהליך היצירתי ולהביא רעיונות ייחודיים שלא נראו קודם.</p></div><div class="value-item"><i class="fas fa-gem"></i><h3 data-i18n="about_h3_10">איכות</h3><p data-i18n="about_p_23">כל תלבושת עוברת ביקורת איכות קפדנית ונתפרת בקפידה מירבית כדי להבטיח שהיא תעמוד במבחן הזמן והשימוש.</p></div><div class="value-item"><i class="fas fa-handshake"></i><h3 data-i18n="about_h3_11">שיתוף פעולה</h3><p data-i18n="about_p_24">אנחנו מאמינים שהעבודה הטובה ביותר נוצרת בשיתוף פעולה צמוד עם הלקוחות שלנו, תוך הקשבה והבנה של החזון שלהם.</p></div><div class="value-item"><i class="fas fa-heart"></i><h3 data-i18n="about_h3_12">תשוקה</h3><p data-i18n="about_p_25">אנחנו אוהבים את מה שאנחנו עושים, וזה נראה בכל תלבושת שאנחנו יוצרים. התשוקה שלנו לריקוד ולאופנה מניעה אותנו קדימה.</p></div></div></div></section><section class="why-different"><div class="container"><h2 data-i18n="about_h2_6">מה מייחד אותנו</h2><div class="different-content"><div class="different-item"><h3 data-i18n="about_h3_13">טכנולוגיה מתקדמת</h3><p data-i18n="about_p_26">אנחנו משתמשים בכלי בינה מלאכותית מהמתקדמים ביותר בשוק, שמאפשרים לנו ליצור עיצובים שלא ניתן להשיג בשיטות מסורתיות. הטכנולוגיה עוזרת לנו לחקור אפשרויות בלתי מוגבלות ולמצוא את העיצוב המושלם לכל פרויקט.</p></div><div class="different-item"><h3 data-i18n="about_h3_14">מומחיות אנושית</h3><p data-i18n="about_p_27">למרות השימוש בטכנולוגיה, אנחנו מאמינים שהמגע האנושי הוא המרכיב החשוב ביותר. כל עיצוב עובר עיבוד ידני מקצועי, וכל תלבושת נתפרת בקפידה על ידי אומנים מנוסים.</p></div><div class="different-item"><h3 data-i18n="about_h3_15">התאמה אישית</h3><p data-i18n="about_p_28">אנחנו לא מאמינים בפתרונות גנריים. כל תלבושת מותאמת אישית לרקדן או ללהקה - החל מהעיצוב, דרך הבדים ועד להתאמה הסופית. התוצאה היא תלבושת שמרגישה כמו נוצרה במיוחד עבורכם - כי היא באמת נוצרה במיוחד עבורכם.</p></div><div class="different-item"><h3 data-i18n="about_h3_16">שירות מקצועי</h3><p data-i18n="about_p_29">אנחנו מלווים אתכם לאורך כל התהליך - מהייעוץ הראשוני ועד למסירה הסופית. אנחנו זמינים לשאלות, מקשיבים למשוב ועושים כל שביכולתנו כדי להבטיח שתהיו מרוצים לחלוטין מהתוצאה.</p></div></div></div></section><section class="cta-section"><div class="container"><div class="cta-content"><h2 data-i18n="about_h2_7">מוכנים להצטרף למשפחה שלנו?</h2><p data-i18n="about_p_30">בואו נדבר על הפרויקט הבא שלכם ונראה איך אנחנו יכולים לעזור לכם להאיר את הבמה</p><a href="/contact" class="btn-primary" data-i18n="about_link_34">צרו קשר</a></div></div></section><a href="https://wa.me/972522972222" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a><footer class="legal-footer"><div class="container"><div class="footer-main"><div class="all-rights-reserved"><p data-i18n="about_p_31">© 2025 ReginaSelaDesign. כל הזכויות שמורות.</p></div><div class="footer-social"><a href="https://facebook.com/beerisela" aria-label="Facebook" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://instagram.com/beerisela" aria-label="Instagram" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/972522972222" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a></div><div class="footer-legal"><a href="privacy.html" aria-label="מדיניות פרטיות" data-i18n="about_link_35">מדיניות פרטיות</a><span class="separator">|</span><a href="accessibility.html" aria-label="נגישות" data-i18n="about_link_36">נגישות</a><span class="separator">|</span><a href="terms.html" aria-label="תנאי שימוש" data-i18n="about_link_37">תנאי שימוש</a></div></div><div class="zappy-attribution"><p data-i18n="about_p_32">נוצר באמצעות<a href="https://zappy5.com" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:underline" data-i18n="about_link_38">Zappy</a></p></div></div></footer><script>!function(){var e=window.location.href;e.includes("/preview/")||e.includes("/preview-fullscreen/")||e.includes("localhost:5001")||e.includes("localhost:3000")||fetch("https://api.zappy5.com/api/website/57062aa2-dec4-454c-8801-70d32f209321/tier").then(function(e){return e.json()}).then(function(e){if(e.showAttribution){var t=document.getElementById("zappy-attribution-header");t&&(t.style.display="block")}}).catch(function(e){console.error("Failed to check tier:",e)})}()</script><div data-integration="accessibility:toolbar"></div><script src="/script.js"></script>
+
+
+
+
 
 
 <!-- i18next Multi-Language Support -->
@@ -135,6 +130,33 @@
   const resources = {
   "he": {
     "translation": {
+      "new_a_68": "קראו עוד על רגינה",
+      "new_a_72": "קראו עוד על עמית",
+      "new_a_76": "קראו עוד על רונית",
+      "new_p_59": "אנחנו מאמינים שעיצוב תלבושות לרקדנים דורש יותר מרק בד ומחט. הסטודיו שלנו משלב מסורת של תפירה עילית עם חדשנות של בינה מלאכותית כדי להביא לבמה יצירות שלא נראו כמותן.",
+      "new_p_61": "בעולם הריקוד התחרותי, כל פרט קובע. הצוות שלנו מורכב מאנשי מקצוע שמבינים תנועה, בד וטכנולוגיה. אנו גאים להיות חלוצים בתחום עיצוב תלבושות לרקדנים המשלב כלים מתקדמים של בינה מלאכותית בתהליך היצירה. טכנולוגיה זו מאפשרת לנו לדמיין, לשרטט ולבצע התאמות מדויקות עוד לפני גזירת הבד הראשון.",
+      "new_p_62": "השימוש בטכנולוגיות של בינה מלאכותית מעניק ללקוחותינו יתרון משמעותי. אנחנו מסוגלים לייצר ויזואליזציות ריאליסטיות של התלבושת על הבמה, לבחון שילובי צבעים נועזים ולהתאים את הגזרה באופן מושלם למבנה הגוף של הרקדן ולסגנון הריקוד הספציפי. זהו שילוב מנצח בין הלב והנשמה של המעצב לבין הדיוק והיעילות של המחשב.",
+      "new_p_63": "כל חבר צוות מביא עמו מומחיות ייחודית – החל מהבנה עמוקה של אנטומיה ותנועה, דרך שליטה בטכניקות תפירה מסורתיות, ועד למומחיות בתוכנות עיצוב וג'נרטיב AI. יחד, אנחנו יוצרים מעטפת שלמה לרקדנים ולהקות שרוצים להשאיר חותם על הבמה.",
+      "new_p_66": "מייסדת ומנהלת קריאייטיב",
+      "new_p_67": "עם ניסיון של מעל 15 שנה בעולם האופנה והריקוד, רגינה מובילה את החזון העיצובי של הסטודיו. היא משלבת ידע קלאסי עם פתיחות לחדשנות טכנולוגית.",
+      "new_p_70": "מומחה בינה מלאכותית ועיצוב דיגיטלי",
+      "new_p_71": "עמית אחראי על הטמעת כלי בינה מלאכותית בתהליך העיצוב. הוא הופך רעיונות מופשטים להדמיות ויזואליות מדויקות ומסייע ביצירת דפוסים ייחודיים.",
+      "new_p_74": "מנהלת טכנולוגית טקסטיל",
+      "new_p_75": "המומחית שלנו לבדים וגזרות. רונית דואגת שכל עיצוב וירטואלי יהפוך לבגד נוח, עמיד ומרשים המאפשר לרקדן לנוע בחופשיות מוחלטת.",
+      "new_p_78": "אנחנו כאן כדי להפוך את החזון האומנותי שלכם למציאות על הבמה. צרו קשר עוד היום לפגישת ייעוץ ראשונית.",
+      "new_p_80": "מייסדת ומנהלת קריאייטיב",
+      "new_p_81": "\"הבמה היא המקום בו חלומות הופכים לתנועה. התפקיד שלי הוא להלביש את החלומות הללו בצורה שתעצים כל צעד וכל מחווה של הרקדן.\"",
+      "new_p_83": "רגינה סלע החלה את דרכה בעולם המחול כרקדנית צעירה, מה שהעניק לה הבנה אינטימית של הצרכים הפיזיים והאסתטיים של רקדנים על הבמה. לאחר שסיימה את לימודיה בבית הספר הגבוה לאופנה שנקר, היא החליטה לשלב את שתי אהבותיה הגדולות: אופנה ומחול. במשך למעלה מ-15 שנה, היא מתמחה בתחום של עיצוב תלבושות לרקדנים, כשהיא עובדת עם הלהקות המובילות בישראל ובאירופה.",
+      "new_p_84": "הייחודיות של רגינה טמונה ביכולת שלה לראות את התמונה הגדולה. היא לא רק מעצבת בגד, אלא יוצרת דמות בימתית. היא מבינה כיצד תאורה משפיעה על צבע הבד, כיצד הגזרה משפיעה על טווח התנועה, וכיצד התלבושת תורמת לסיפור שהכוריאוגרף מנסה לספר.",
+      "new_p_86": "בשנים האחרונות, רגינה הובילה מהלך אסטרטגי של הטמעת כלי בינה מלאכותית בתהליכי העבודה בסטודיו. ההבנה שהטכנולוגיה אינה מחליפה את היצירתיות האנושית, אלא מעצימה אותה, היא שעומדת בבסיס הפילוסופיה שלה. השימוש ב-AI מאפשר לרגינה לבחון מאות וריאציות של טקסטורות, צורות ושילובי צבעים בזמן שיא.",
+      "new_p_87": "\"הבינה המלאכותית היא כמו אסיסטנט מוכשר שלא מתעייף לעולם,\" אומרת רגינה. \"היא מאפשרת לי לפרוץ את גבולות הדמיון שלי. אני יכולה להזין למערכת רעיון מופשט כמו 'תנועת גלים בים סוער' ולקבל השראות ויזואליות שמתורגמות לאחר מכן לגזרות ולבדים אמיתיים. זה משנה לחלוטין את הדרך שבה אנחנו ניגשים לעיצוב תלבושות במה.\"",
+      "new_p_89": "\"עיצוב מצוין הוא כזה שרואים אותו, אבל מרגישים את הרקדן. התלבושת צריכה לשרת את האומן, לא להשתלט עליו. הטכנולוגיה עוזרת לנו לדייק את האיזון העדין הזה.\"",
+      "new_p_91": "מומחה בינה מלאכותית ועיצוב דיגיטלי",
+      "new_p_92": "\"אנחנו חיים בעידן שבו הגבול בין הפיזי לדיגיטלי מיטשטש. אני כאן כדי לוודא שהטכנולוגיה משרתת את האומנות בצורה הטובה ביותר.\"",
+      "new_p_94": "עמית לוי מגיע מרקע של עיצוב גרפי ופיתוח תוכנה, אך האהבה שלו לאופנה תמיד הייתה ברקע. בסטודיו של רגינה סלע, עמית אחראי על הצד הטכנולוגי והחדשני של תהליך היצירה. הוא מתמחה בשימוש בכלי בינה מלאכותית גנרטיבית (Generative AI) כדי ליצור טקסטורות בדים ייחודיות שאינן קיימות בשוק המסחרי.",
+      "new_p_95": "התהליך מתחיל בהבנת הקונספט של הריקוד. עמית משתמש באלגוריתמים מתקדמים כדי לייצר הדמיות תלת-ממדיות של התלבושת על גוף בתנועה. זה מאפשר ללקוחות לראות בדיוק כיצד הבגד ייראה בסיבוב, בקפיצה או במתיחה, ולבצע שינויים בזמן אמת ללא עלויות של תפירת דגמים מיותרים.",
+      "new_p_97": "אחד האתגרים הגדולים ב-עיצוב תלבושות לרקדנים הוא הצורך בייחודיות. בתחרויות בינלאומיות, כל פרט ויזואלי יכול להשפיע על הציון. בעזרת הכלים שעמית פיתח והטמיע בסטודיו, אנחנו יכולים להבטיח לכל להקה עיצוב שהוא One of a kind.",
+      "new_p_98": "\"השימוש בבינה מלאכותית מאפשר לנו ליצור דפוסים מורכבים להדפסה דיגיטלית על בדים אלסטיים,\" מסביר עמית. \"אנחנו יכולים ליצור אשליות אופטיות שמחמיאות לגוף הרקדן, או לשחזר טקסטורות היסטוריות בדיוק מושלם. הטכנולוגיה לא מחליפה את המעצב, היא נותנת לו ארגז כלים אינסופי.\"",
       "home_h1_1": "עיצוב תלבושות במה בינה מלאכותית",
       "home_h2_2": "ברוכים הבאים ל-Regina Sela Design",
       "home_h2_3": "השירותים שלנו",
@@ -146,7 +168,7 @@
       "home_h3_9": "תלבושות לתחרויות ריקוד",
       "home_p_17": "Happily created by&nbsp;Zappy",
       "home_p_18": "אנחנו משלבים בינה מלאכותית עם אומנות האופנה כדי ליצור תלבושות במה מרהיבות. התמחותנו היא בעיצוב תלבושות לרקדנים ולהקות שמופיעים על במות או משתתפים בתחרויות ריקוד ברחבי העולם.",
-      "home_p_19": "כל תלבושת שאנו יוצרים היא פרי שילוב ייחודי של חזון אמנותי, טכנולוגיה חדשנית ומקצועיות גבוהה. אנחנו מאמינים שתלבושת היא לא רק בגד - היא חלק בלתי נפרד מהביצוע, המספר סיפור ומעצים את התנועה.",
+      "home_p_19": "כל תלבושת שאנו יוצרים היא פרי שילוב ייחודי של חזון אמנותי, טכנולוגיה חדשנית ומקצועיות גבוהה. אנחנו מאמינים שתלבושת היא לא רק בגד - היא חלק בלתי נפרד מהביצוע, המספר סיפור ומעצים את התנועה.\nכדגכדגכדגכ\nדגכדגכדגכ",
       "home_p_20": "עיצוב ייחודי של תלבושות לתחרויות ריקוד המשלב אסתטיקה, פונקציונליות ותנועה חופשית. כל תלבושת מותאמת אישית לסגנון הריקוד ולדרישות התחרות.",
       "home_p_21": "יצירת קולקציות שלמות להקות ריקוד המשלבות אחידות ויחידות. אנחנו מעצבים תלבושות שמדגישות את הסינרגיה של הלהקה ומעצימות את הביצוע הקבוצתי.",
       "home_p_22": "שימוש בטכנולוגיית בינה מלאכותית מתקדמת ליצירת רעיונות עיצוב חדשניים. אנחנו משלבים כלי AI כדי לחקור אפשרויות עיצוב בלתי מוגבלות ולהביא רעיונות ייחודיים לחיים.",
@@ -161,6 +183,28 @@
       "home_p_31": "בואו נדבר על הפרויקט הבא שלכם ונראה איך אנחנו יכולים להפוך את החזון שלכם למציאות",
       "home_p_32": "© 2025 ReginaSelaDesign. כל הזכויות שמורות.",
       "home_p_33": "נוצר באמצעותZappy",
+      "new_a_111": "חזרה לצוות",
+      "new_h1_58": "האנשים שמאחורי היצירה: שילוב של אומנות וטכנולוגיה",
+      "new_h1_79": "רגינה סלע",
+      "new_h1_90": "עמית לוי",
+      "new_h2_60": "החזון שלנו: אנושיות פוגשת בינה מלאכותית",
+      "new_h2_64": "הכירו את המומחים שלנו",
+      "new_h2_77": "רוצים לעבוד עם הצוות שלנו?",
+      "new_h2_82": "המסע המקצועי",
+      "new_h2_85": "מהפכת הבינה המלאכותית בסטודיו",
+      "new_h2_93": "הגשר בין קוד לבד",
+      "new_h2_96": "חדשנות בעיצוב תלבושות במה",
+      "new_h3_65": "רגינה סלע",
+      "new_h3_69": "עמית לוי",
+      "new_h3_73": "רונית כהן",
+      "new_h3_88": "האני מאמין של רגינה",
+      "new_li_99": "הדמיות תלת-ממד: צפייה בבגד מכל זווית לפני הייצור.",
+      "new_p_103": "מנהלת טכנולוגית טקסטיל",
+      "new_p_104": "\"בגד יפה שלא נוח לרקוד בו הוא כישלון. המטרה שלי היא לגרום לרקדן לשכוח שהוא לובש תלבושת ולהתרכז נטו בביצוע.\"",
+      "new_p_106": "רונית כהן היא העוגן הטכני של הסטודיו. עם תואר בהנדסת טקסטיל וניסיון של עשור בפיתוח בגדי ספורט, היא מביאה את הידע הפרקטי שמאפשר לחזונות העיצוביים של רגינה ולפיתוחים הדיגיטליים של עמית להפוך למציאות לבישה. רונית אחראית על בחירת החומרים, בדיקות האלסטיות והתאמת הגזרות לגוף האנושי בתנועה.",
+      "new_p_107": "בתחום של עיצוב תלבושות לרקדנים, בחירת הבד היא קריטית. הבד חייב לנשום, למתוח, לחזור לצורתו המקורית ולעמוד בתנאי תאורה קשים וזיעה. רונית עובדת צמוד עם ספקי בדים מתקדמים מכל העולם כדי לאתר את החומרים החדשניים ביותר.",
+      "new_p_109": "התפקיד של רונית הוא גם לוודא שהתוצרים של ה-בינה מלאכותית ניתנים לייצור. לא כל מה שנראה טוב על המסך ניתן לתפירה במציאות. רונית משמשת כ\"מתרגמת\" בין העולם הווירטואלי לעולם הפיזי. היא מנתחת את הדגמים הממוחשבים ומוצאת פתרונות יצירתיים למימושם – בין אם באמצעות טכניקות הדפסה מיוחדות, חיתוכי לייזר או תפרים ארגונומיים.",
+      "new_p_110": "\"כשאני רואה רקדן מבצע הנפה מורכבת והבגד זז איתו בהרמוניה מושלמת, אני יודעת שעשינו את העבודה שלנו,\" אומרת רונית. \"השילוב בין העיצוב המרהיב לבין ההנדסה המדויקת של הבגד הוא מה שהופך את הסטודיו שלנו למוביל בתחומו.\"",
       "about_h1_1": "אודות Regina Sela Design",
       "about_h2_2": "הסיפור שלנו",
       "about_h2_3": "המשימה שלנו",
@@ -193,6 +237,11 @@
       "home_h3_14": "אומנות אותנטית",
       "home_h3_15": "שיתוף פעולה אישי",
       "home_h3_16": "תוצאות מרשימות",
+      "new_h1_102": "רונית כהן",
+      "new_h2_105": "הנדסה של תנועה",
+      "new_h2_108": "איכות ללא פשרות",
+      "new_li_100": "עיצוב טקסטיל ב-AI: יצירת דוגמאות בד בלעדיות ומותאמות אישית.",
+      "new_li_101": "אופטימיזציה של גזרות: חישובים ממוחשבים לניצול מיטבי של בד ונוחות מקסימלית.",
       "about_h3_10": "איכות",
       "about_h3_11": "שיתוף פעולה",
       "about_h3_12": "תשוקה",
@@ -387,6 +436,33 @@
   },
   "en": {
     "translation": {
+      "new_a_68": "Read more about Regina",
+      "new_a_72": "Read more about Amit",
+      "new_a_76": "Read more about Ronit",
+      "new_p_59": "We believe that designing costumes for dancers requires more than just fabric and needle. Our studio combines the tradition of haute couture with artificial intelligence innovation to bring to the stage creations unlike anything seen before.",
+      "new_p_61": "In the competitive dance world, every detail matters. Our team consists of professionals who understand movement, fabric, and technology. We are proud to be pioneers in the field of dance costume design that integrates advanced artificial intelligence tools into the creative process. This technology allows us to envision, sketch, and make precise adjustments even before cutting the first piece of fabric.",
+      "new_p_62": "The use of artificial intelligence technologies gives our clients a significant advantage. We are able to produce realistic visualizations of the costume on stage, examine bold color combinations, and perfectly adapt the cut to the dancer's body structure and specific dance style. This is a winning combination between the heart and soul of the designer and the precision and efficiency of the computer.",
+      "new_p_63": "Each team member brings unique expertise – from deep understanding of anatomy and movement, through mastery of traditional sewing techniques, to expertise in design software and generative AI. Together, we create a complete envelope for dancers and troupes who want to leave their mark on the stage.",
+      "new_p_66": "Founder and Creative Director",
+      "new_p_67": "With over 15 years of experience in the fashion and dance world, Regina leads the studio's design vision. She combines classical knowledge with openness to technological innovation.",
+      "new_p_70": "Artificial Intelligence and Digital Design Expert",
+      "new_p_71": "Amit is responsible for implementing artificial intelligence tools in the design process. He transforms abstract ideas into accurate visual simulations and assists in creating unique patterns.",
+      "new_p_74": "Textile Technology Manager",
+      "new_p_75": "Our expert in fabrics and cuts. Ronit ensures that every virtual design becomes a comfortable, durable, and impressive garment that allows the dancer to move with complete freedom.",
+      "new_p_78": "We are here to turn your artistic vision into reality on stage. Contact us today for an initial consultation meeting.",
+      "new_p_80": "Founder and Creative Director",
+      "new_p_81": "\"The stage is where dreams become movement. My role is to dress those dreams in a way that enhances every step and every gesture of the dancer.\"",
+      "new_p_83": "Regina Sela began her path in the dance world as a young dancer, which gave her an intimate understanding of the physical and aesthetic needs of dancers on stage. After completing her studies at Shenkar College of Engineering, Design and Art, she decided to combine her two great loves: fashion and dance. For over 15 years, she has specialized in the field of dance costume design, working with leading companies in Israel and Europe.",
+      "new_p_84": "Regina's uniqueness lies in her ability to see the big picture. She doesn't just design a garment, but creates a stage character. She understands how lighting affects fabric color, how the cut affects range of movement, and how the costume contributes to the story the choreographer is trying to tell.",
+      "new_p_86": "In recent years, Regina has led a strategic move to implement artificial intelligence tools in the studio's work processes. The understanding that technology does not replace human creativity, but enhances it, is the foundation of her philosophy. The use of AI allows Regina to examine hundreds of variations of textures, shapes, and color combinations in record time.",
+      "new_p_87": "\"Artificial intelligence is like a skilled assistant who never gets tired,\" says Regina. \"It allows me to break the boundaries of my imagination. I can input an abstract idea like 'wave movement in a stormy sea' and receive visual inspirations that are then translated into real cuts and fabrics. This completely changes the way we approach stage costume design.\"",
+      "new_p_89": "\"Excellent design is one that you see, but you feel the dancer. The costume must serve the artist, not dominate them. Technology helps us perfect this delicate balance.\"",
+      "new_p_91": "Artificial Intelligence and Digital Design Expert",
+      "new_p_92": "\"We live in an era where the boundary between physical and digital is blurring. I'm here to ensure that technology serves art in the best possible way.\"",
+      "new_p_94": "Amit Levi comes from a background in graphic design and software development, but his love for fashion has always been in the background. At Regina Sela's studio, Amit is responsible for the technological and innovative side of the creative process. He specializes in using generative AI tools to create unique fabric textures that don't exist in the commercial market.",
+      "new_p_95": "The process begins with understanding the dance concept. Amit uses advanced algorithms to generate three-dimensional simulations of the costume on a body in motion. This allows clients to see exactly how the garment will look in a turn, jump, or stretch, and make real-time changes without the costs of sewing unnecessary samples.",
+      "new_p_97": "One of the biggest challenges in dance costume design is the need for uniqueness. In international competitions, every visual detail can affect the score. With the tools that Amit developed and implemented in the studio, we can guarantee each troupe a design that is truly one of a kind.",
+      "new_p_98": "\"The use of artificial intelligence allows us to create complex patterns for digital printing on elastic fabrics,\" explains Amit. \"We can create optical illusions that flatter the dancer's body, or reproduce historical textures with perfect accuracy. Technology doesn't replace the designer, it gives them an infinite toolbox.\"",
       "home_h1_1": "AI Stage Costume Design",
       "home_h2_2": "Welcome to Regina Sela Design",
       "home_h2_3": "Our Services",
@@ -398,7 +474,7 @@
       "home_h3_9": "Dance Competition Costumes",
       "home_p_17": "Happily created by&nbsp;Zappy",
       "home_p_18": "We combine artificial intelligence with fashion artistry to create stunning stage costumes. Our specialty is designing costumes for dancers and troupes who perform on stages or participate in dance competitions around the world.",
-      "home_p_19": "Every costume we create is the result of a unique combination of artistic vision, innovative technology, and high professionalism. We believe that a costume is not just a garment - it's an integral part of the performance, telling a story and enhancing movement.",
+      "home_p_19": "Every costume we create is the result of a unique combination of artistic vision, innovative technology and high professionalism. We believe that a costume is not just a garment - it is an integral part of the performance, telling a story and enhancing movement.\nכדגכדגכדגכ\nדגכדגכדגכ",
       "home_p_20": "Unique design of dance competition costumes that combines aesthetics, functionality, and free movement. Each costume is personally tailored to the dance style and competition requirements.",
       "home_p_21": "Creating complete collections for dance troupes that combine uniformity and unity. We design costumes that highlight the troupe's synergy and enhance group performance.",
       "home_p_22": "Using advanced artificial intelligence technology to create innovative design ideas. We integrate AI tools to explore unlimited design possibilities and bring unique ideas to life.",
@@ -413,6 +489,28 @@
       "home_p_31": "Let's talk about your next project and see how we can turn your vision into reality",
       "home_p_32": "© 2025 ReginaSelaDesign. All rights reserved.",
       "home_p_33": "Created with Zappy",
+      "new_a_111": "Back to Team",
+      "new_h1_58": "The People Behind the Creation: A Fusion of Art and Technology",
+      "new_h1_79": "Regina Sela",
+      "new_h1_90": "Amit Levi",
+      "new_h2_60": "Our Vision: Humanity Meets Artificial Intelligence",
+      "new_h2_64": "Meet Our Experts",
+      "new_h2_77": "Want to Work with Our Team?",
+      "new_h2_82": "The Professional Journey",
+      "new_h2_85": "The Artificial Intelligence Revolution in the Studio",
+      "new_h2_93": "The Bridge Between Code and Fabric",
+      "new_h2_96": "Innovation in Stage Costume Design",
+      "new_h3_65": "Regina Sela",
+      "new_h3_69": "Amit Levi",
+      "new_h3_73": "Ronit Cohen",
+      "new_h3_88": "Regina's Credo",
+      "new_li_99": "3D simulations: viewing the garment from every angle before production.",
+      "new_p_103": "Textile Technology Manager",
+      "new_p_104": "\"A beautiful garment that's not comfortable to dance in is a failure. My goal is to make the dancer forget they're wearing a costume and focus purely on performance.\"",
+      "new_p_106": "Ronit Cohen is the technical anchor of the studio. With a degree in textile engineering and a decade of experience in sportswear development, she brings the practical knowledge that allows Regina's design visions and Amit's digital developments to become wearable reality. Ronit is responsible for material selection, elasticity testing, and adapting cuts to the human body in motion.",
+      "new_p_107": "In the field of dance costume design, fabric selection is critical. The fabric must breathe, stretch, return to its original shape, and withstand harsh lighting conditions and perspiration. Ronit works closely with advanced fabric suppliers from around the world to locate the most innovative materials.",
+      "new_p_109": "Ronit's role is also to ensure that the AI-generated products are manufacturable. Not everything that looks good on screen can be sewn in reality. Ronit serves as a 'translator' between the virtual world and the physical world. She analyzes the computerized models and finds creative solutions for their implementation – whether through special printing techniques, laser cutting, or ergonomic seams.",
+      "new_p_110": "\"When I see a dancer performing a complex lift and the garment moves with them in perfect harmony, I know we've done our job,\" says Ronit. \"The combination of stunning design with precise garment engineering is what makes our studio a leader in its field.\"",
       "about_h1_1": "About Regina Sela Design",
       "about_h2_2": "Our Story",
       "about_h2_3": "Our Mission",
@@ -445,6 +543,11 @@
       "home_h3_14": "Authentic Artistry",
       "home_h3_15": "Personal Collaboration",
       "home_h3_16": "Impressive Results",
+      "new_h1_102": "Ronit Cohen",
+      "new_h2_105": "Engineering Movement",
+      "new_h2_108": "Uncompromising Quality",
+      "new_li_100": "AI textile design: creating exclusive and custom fabric patterns.",
+      "new_li_101": "Cut optimization: computerized calculations for optimal fabric utilization and maximum comfort.",
       "about_h3_10": "Quality",
       "about_h3_11": "Collaboration",
       "about_h3_12": "Passion",
@@ -639,6 +742,33 @@
   },
   "ru": {
     "translation": {
+      "new_a_68": "Читать больше о Регине",
+      "new_a_72": "Читать больше об Амите",
+      "new_a_76": "Читать больше о Ронит",
+      "new_p_59": "Мы верим, что дизайн костюмов для танцоров требует больше, чем просто ткань и иголка. Наша студия сочетает традиции высокого портняжного мастерства с инновациями искусственного интеллекта, чтобы создавать для сцены произведения, подобных которым еще не видели.",
+      "new_p_61": "В мире соревновательного танца каждая деталь имеет значение. Наша команда состоит из профессионалов, которые понимают движение, ткань и технологии. Мы гордимся тем, что являемся пионерами в области дизайна костюмов для танцоров, интегрирующего передовые инструменты искусственного интеллекта в процесс творчества. Эта технология позволяет нам представлять, эскизировать и выполнять точные корректировки еще до раскроя первого куска ткани.",
+      "new_p_62": "Использование технологий искусственного интеллекта дает нашим клиентам значительное преимущество. Мы способны создавать реалистичные визуализации костюма на сцене, исследовать смелые цветовые сочетания и идеально подгонять крой под строение тела танцора и специфический стиль танца. Это выигрышное сочетание сердца и души дизайнера с точностью и эффективностью компьютера.",
+      "new_p_63": "Каждый член команды привносит уникальную экспертизу – от глубокого понимания анатомии и движения, через владение традиционными техниками шитья, до экспертизы в программах дизайна и генеративном ИИ. Вместе мы создаем полную оболочку для танцоров и трупп, которые хотят оставить след на сцене.",
+      "new_p_66": "Основатель и креативный директор",
+      "new_p_67": "С опытом более 15 лет в мире моды и танца, Регина возглавляет дизайнерское видение студии. Она сочетает классические знания с открытостью к технологическим инновациям.",
+      "new_p_70": "Эксперт по искусственному интеллекту и цифровому дизайну",
+      "new_p_71": "Амит отвечает за внедрение инструментов искусственного интеллекта в процесс дизайна. Он превращает абстрактные идеи в точные визуальные представления и помогает создавать уникальные узоры.",
+      "new_p_74": "Технический менеджер по текстилю",
+      "new_p_75": "Наш эксперт по тканям и кройке. Ронит следит за тем, чтобы каждый виртуальный дизайн превратился в удобную, прочную и впечатляющую одежду, позволяющую танцору двигаться в полной свободе.",
+      "new_p_78": "Мы здесь, чтобы превратить ваше художественное видение в реальность на сцене. Свяжитесь с нами сегодня для первичной консультации.",
+      "new_p_80": "Основатель и креативный директор",
+      "new_p_81": "\"Сцена – это место, где мечты превращаются в движение. Моя задача – одеть эти мечты таким образом, чтобы усилить каждый шаг и каждый жест танцора.\"",
+      "new_p_83": "Регина Села начала свой путь в мире танца как молодая танцовщица, что дало ей интимное понимание физических и эстетических потребностей танцоров на сцене. После окончания Высшей школы моды Шенкар она решила объединить две свои большие любви: моду и танец. На протяжении более 15 лет она специализируется в области дизайна костюмов для танцоров, работая с ведущими труппами в Израиле и Европе.",
+      "new_p_84": "Уникальность Регины заключается в ее способности видеть большую картину. Она не просто проектирует одежду, а создает сценический образ. Она понимает, как освещение влияет на цвет ткани, как крой влияет на диапазон движений, и как костюм способствует истории, которую пытается рассказать хореограф.",
+      "new_p_86": "В последние годы Регина возглавила стратегическую инициативу по внедрению инструментов искусственного интеллекта в рабочие процессы студии. Понимание того, что технология не заменяет человеческое творчество, а усиливает его, лежит в основе ее философии. Использование ИИ позволяет Регине исследовать сотни вариаций текстур, форм и цветовых сочетаний в рекордное время.",
+      "new_p_87": "\"Искусственный интеллект как талантливый ассистент, который никогда не устает,\" говорит Регина. \"Он позволяет мне преодолевать границы моего воображения. Я могу ввести в систему абстрактную идею вроде 'движение волн в бурном море' и получить визуальные вдохновения, которые затем переводятся в реальные кройки и ткани. Это полностью меняет способ, которым мы подходим к дизайну сценических костюмов.\"",
+      "new_p_89": "\"Отличный дизайн – это тот, который видят, но чувствуют танцора. Костюм должен служить артисту, а не доминировать над ним. Технология помогает нам точно настроить этот деликатный баланс.\"",
+      "new_p_91": "Эксперт по искусственному интеллекту и цифровому дизайну",
+      "new_p_92": "\"Мы живем в эпоху, когда граница между физическим и цифровым размывается. Я здесь, чтобы убедиться, что технология служит искусству наилучшим образом.\"",
+      "new_p_94": "Амит Леви приходит из области графического дизайна и разработки программного обеспечения, но его любовь к моде всегда была на заднем плане. В студии Регины Селы Амит отвечает за технологическую и инновационную сторону творческого процесса. Он специализируется на использовании инструментов генеративного искусственного интеллекта для создания уникальных текстур тканей, которые не существуют на коммерческом рынке.",
+      "new_p_95": "Процесс начинается с понимания концепции танца. Амит использует передовые алгоритмы для создания трехмерных визуализаций костюма на теле в движении. Это позволяет клиентам точно видеть, как будет выглядеть одежда при повороте, прыжке или растяжке, и вносить изменения в реальном времени без затрат на пошив ненужных образцов.",
+      "new_p_97": "Одним из больших вызовов в дизайне костюмов для танцоров является потребность в уникальности. На международных соревнованиях каждая визуальная деталь может повлиять на оценку. С помощью инструментов, которые Амит разработал и внедрил в студии, мы можем гарантировать каждой труппе дизайн, который является единственным в своем роде.",
+      "new_p_98": "\"Использование искусственного интеллекта позволяет нам создавать сложные узоры для цифровой печати на эластичных тканях,\" объясняет Амит. \"Мы можем создавать оптические иллюзии, которые льстят телу танцора, или воспроизводить исторические текстуры с совершенной точностью. Технология не заменяет дизайнера, она дает ему бесконечный набор инструментов.\"",
       "home_h1_1": "Дизайн сценических костюмов с искусственным интеллектом",
       "home_h2_2": "Добро пожаловать в Regina Sela Design",
       "home_h2_3": "Наши услуги",
@@ -650,7 +780,7 @@
       "home_h3_9": "Костюмы для танцевальных соревнований",
       "home_p_17": "Happily created by&nbsp;Zappy",
       "home_p_18": "Мы объединяем искусственный интеллект с искусством моды для создания потрясающих сценических костюмов. Наша специализация - дизайн костюмов для танцоров и коллективов, выступающих на сценах или участвующих в танцевальных соревнованиях по всему миру.",
-      "home_p_19": "Каждый костюм, который мы создаем, является результатом уникального сочетания художественного видения, инновационных технологий и высокого профессионализма. Мы верим, что костюм - это не просто одежда, это неотъемлемая часть выступления, рассказывающая историю и усиливающая движение.",
+      "home_p_19": "Каждый костюм, который мы создаем, является результатом уникального сочетания художественного видения, инновационных технологий и высокого профессионализма. Мы верим, что костюм - это не просто одежда, а неотъемлемая часть выступления, которая рассказывает историю и усиливает движение.\nкдгкдгкдгкдг\nдгкдгкдгк",
       "home_p_20": "Уникальный дизайн костюмов для танцевальных соревнований, сочетающий эстетику, функциональность и свободу движений. Каждый костюм индивидуально адаптирован к стилю танца и требованиям соревнования.",
       "home_p_21": "Создание полных коллекций для танцевальных коллективов, сочетающих единообразие и уникальность. Мы разрабатываем костюмы, которые подчеркивают синергию коллектива и усиливают групповое выступление.",
       "home_p_22": "Использование передовых технологий искусственного интеллекта для создания инновационных дизайнерских идей. Мы интегрируем инструменты AI для исследования безграничных возможностей дизайна и воплощения уникальных идей в жизнь.",
@@ -665,6 +795,28 @@
       "home_p_31": "Давайте поговорим о вашем следующем проекте и посмотрим, как мы можем превратить ваше видение в реальность",
       "home_p_32": "© 2025 ReginaSelaDesign. Все права защищены.",
       "home_p_33": "Создано с помощью Zappy",
+      "new_a_111": "Вернуться к команде",
+      "new_h1_58": "Люди за творением: сочетание искусства и технологий",
+      "new_h1_79": "Регина Села",
+      "new_h1_90": "Амит Леви",
+      "new_h2_60": "Наше видение: человечность встречает искусственный интеллект",
+      "new_h2_64": "Познакомьтесь с нашими экспертами",
+      "new_h2_77": "Хотите работать с нашей командой?",
+      "new_h2_82": "Профессиональный путь",
+      "new_h2_85": "Революция искусственного интеллекта в студии",
+      "new_h2_93": "Мост между кодом и тканью",
+      "new_h2_96": "Инновации в дизайне сценических костюмов",
+      "new_h3_65": "Регина Села",
+      "new_h3_69": "Амит Леви",
+      "new_h3_73": "Ронит Коэн",
+      "new_h3_88": "Кредо Регины",
+      "new_li_99": "3D-визуализации: просмотр одежды под любым углом до производства.",
+      "new_p_103": "Технический менеджер по текстилю",
+      "new_p_104": "\"Красивая одежда, в которой неудобно танцевать, – это провал. Моя цель – заставить танцора забыть, что он носит костюм, и сосредоточиться исключительно на исполнении.\"",
+      "new_p_106": "Ронит Коэн – техническая опора студии. С дипломом в области текстильной инженерии и десятилетним опытом в разработке спортивной одежды, она привносит практические знания, которые позволяют дизайнерским видениям Регины и цифровым разработкам Амита стать носимой реальностью. Ронит отвечает за выбор материалов, тесты на эластичность и подгонку кройки под человеческое тело в движении.",
+      "new_p_107": "В области дизайна костюмов для танцоров выбор ткани критичен. Ткань должна дышать, растягиваться, возвращаться к первоначальной форме и выдерживать сложные условия освещения и пота. Ронит работает в тесном сотрудничестве с передовыми поставщиками тканей со всего мира, чтобы найти самые инновационные материалы.",
+      "new_p_109": "Задача Ронит также заключается в том, чтобы убедиться, что продукты искусственного интеллекта пригодны для производства. Не всё, что хорошо выглядит на экране, можно воплотить в реальности при пошиве. Ронит служит «переводчиком» между виртуальным и физическим миром. Она анализирует компьютерные модели и находит творческие решения для их реализации — будь то с помощью специальных техник печати, лазерной резки или эргономичных швов.",
+      "new_p_110": "«Когда я вижу, как танцор выполняет сложный подъём, а костюм движется с ним в совершенной гармонии, я знаю, что мы выполнили свою работу», — говорит Ронит. «Сочетание потрясающего дизайна с точной инженерией костюма — это то, что делает нашу студию лидером в своей области.»",
       "about_h1_1": "О Regina Sela Design",
       "about_h2_2": "Наша история",
       "about_h2_3": "Наша миссия",
@@ -697,6 +849,11 @@
       "home_h3_14": "Аутентичное искусство",
       "home_h3_15": "Персональное сотрудничество",
       "home_h3_16": "Впечатляющие результаты",
+      "new_h1_102": "Ронит Коэн",
+      "new_h2_105": "Инженерия движения",
+      "new_h2_108": "Качество без компромиссов",
+      "new_li_100": "Дизайн текстиля с ИИ: создание эксклюзивных и персонализированных образцов ткани.",
+      "new_li_101": "Оптимизация кройки: компьютерные расчеты для оптимального использования ткани и максимального комфорта.",
       "about_h3_10": "Качество",
       "about_h3_11": "Сотрудничество",
       "about_h3_12": "Страсть",

@@ -1,27 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://regina-sela-design.zappy5.app</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/en</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/ru</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app" />
   </url>
   <url>
     <loc>https://regina-sela-design.zappy5.app/privacy</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/privacy" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/en/privacy</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/privacy" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/ru/privacy</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/privacy" />
   </url>
   <url>
     <loc>https://regina-sela-design.zappy5.app/terms</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/terms" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/en/terms</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/terms" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/ru/terms</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/terms" />
   </url>
   <url>
     <loc>https://regina-sela-design.zappy5.app/accessibility</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/accessibility" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/en/accessibility</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/accessibility" />
+  </url>
+  <url>
+    <loc>https://regina-sela-design.zappy5.app/ru/accessibility</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://regina-sela-design.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://regina-sela-design.zappy5.app/en/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://regina-sela-design.zappy5.app/ru/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://regina-sela-design.zappy5.app/accessibility" />
   </url>
 </urlset>
