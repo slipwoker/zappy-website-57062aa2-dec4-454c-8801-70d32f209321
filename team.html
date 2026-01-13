@@ -1335,26 +1335,23 @@ img[data-no-hero-position] { position: static !important; }
     });
     
     // Update navigation/header - set direction and justify-content
-    // Don't set flex-direction here - let CSS handle it with media queries to preserve mobile menu
+    // IMPORTANT: Never set flex-direction as inline style - it gets persisted and breaks mobile menu
+    // CSS media queries handle flex-direction for desktop vs mobile
     document.querySelectorAll('header, nav, .navbar, .nav-container, .header-container').forEach(function(el) {
       el.style.direction = newDir;
       el.style.justifyContent = 'flex-start';
-      // Only set flex-direction on desktop (check viewport width)
-      if (window.innerWidth >= 768) {
-        el.style.flexDirection = 'row';
-      }
+      // Remove any previously set inline flex-direction to let CSS take over
+      el.style.removeProperty('flex-direction');
     });
     
     // Update nav menus/links container - reset margins (include #navMenu id selector)
-    // Don't override flex-direction on mobile menus
+    // IMPORTANT: Never set flex-direction on nav-menu - mobile menu needs to be vertical
     document.querySelectorAll('.nav-menu, .nav-links, .menu, nav ul, header ul, #navMenu').forEach(function(el) {
       el.style.direction = newDir;
       el.style.marginLeft = '0';
       el.style.marginRight = '0';
-      // Only set flex-direction on desktop
-      if (window.innerWidth >= 768) {
-        el.style.flexDirection = 'row';
-      }
+      // Remove any previously set inline flex-direction to let CSS take over
+      el.style.removeProperty('flex-direction');
     });
     
     // Reset all nav link margins to keep them near logo
@@ -1483,11 +1480,29 @@ img[data-no-hero-position] { position: static !important; }
     });
   }
   
+  // Fix mobile menu inline styles that may have been incorrectly persisted
+  // This is needed because inline styles override CSS media queries
+  function fixMobileMenuStyles() {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+    
+    // Remove inline flex-direction from nav menus so CSS can take over
+    document.querySelectorAll('.nav-menu, #navMenu, nav ul, header ul').forEach(function(el) {
+      if (el.style.flexDirection) {
+        el.style.removeProperty('flex-direction');
+      }
+    });
+  }
+  
   // Initialize on DOM ready
   function init() {
     updateContent();
     updateDirection();
     initLanguageSwitcher();
+    fixMobileMenuStyles();
+    
+    // Also fix on resize (in case user rotates device)
+    window.addEventListener('resize', fixMobileMenuStyles);
   }
   
   // Expose to global scope
@@ -1534,6 +1549,22 @@ img[data-no-hero-position] { position: static !important; }
       if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
       else { initMobileSubmenuToggles(); }
       var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
     })();
     </script>
 </body></html>
