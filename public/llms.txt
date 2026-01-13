@@ -1,34 +1,45 @@
-# Business — Generative Engine Optimization Map
+# Regina Sela Design — Generative Engine Optimization Map
+
+> A אופנה ועיצוב business.
 
 ---
 
 ## Pages
 
 ### Homepage
-https://example.com
+https://zappy-site-57062aa2-dec4-454c-8801.onrender.com
+Welcome to our business
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://example.com/privacy
+https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://example.com/terms
+https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://example.com/accessibility
+https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About Regina Sela Design
+Regina Sela Design is a business in the אופנה ועיצוב industry.
+
+## Target Audience
+רקדנים, מנהלי להקות שמופיעים על במות או משתתפים בתחרויות ריקוד
+
+## Industry
+אופנה ועיצוב
+
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://example.com/sitemap.xml
-- **Robots.txt**: https://example.com/robots.txt
+- **Sitemap**: https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/sitemap.xml
+- **Robots.txt**: https://zappy-site-57062aa2-dec4-454c-8801.onrender.com/robots.txt
