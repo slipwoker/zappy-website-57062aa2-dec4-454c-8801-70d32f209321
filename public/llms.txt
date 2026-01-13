@@ -1,4 +1,6 @@
-# Business — Generative Engine Optimization Map
+# Regina Sela Design — Generative Engine Optimization Map
+
+> A אופנה ועיצוב business.
 
 ---
 
@@ -37,7 +39,15 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About Regina Sela Design
+Regina Sela Design is a business in the אופנה ועיצוב industry.
+
+## Target Audience
+רקדנים, מנהלי להקות שמופיעים על במות או משתתפים בתחרויות ריקוד
+
+## Industry
+אופנה ועיצוב
+
 ---
 
 # Additional Resources
